@@ -8,7 +8,5 @@
   },
   "author": "",
   "license": "MIT",
-  "dependencies": {
-    "fast-csv": "^3.4.0"
-  }
+  "dependencies": {}
 }
