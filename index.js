@@ -1,10 +1,17 @@
 const fs = require('fs');
 
-// This line opens the file as a readable stream
-const readStream = fs.createReadStream(__dirname + '/test.csv');
+const readStream = fs.createReadStream(__dirname + '/train.csv');
 
+const writeStream = fs.createWriteStream(__dirname + '/output.csv');
 
 readStream.on("data", function(data) {
   var chunk = data.toString();
-  console.log(chunk);
+  writeStream.write(data, 'base64');
+  // console.log(chunk);
+});
+
+// readStream.pipe(writeStream)
+
+readStream.on('end', () => {
+  writeStream.end();
 });
