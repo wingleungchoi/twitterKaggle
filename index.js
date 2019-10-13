@@ -5,7 +5,7 @@ const SENTIMENT_VALUES = ['0', '1'];
 
 const readStream = fs.createReadStream(__dirname + '/train.csv');
 
-const writeStream = fs.createWriteStream(__dirname + '/output.csv');
+const writeStream = fs.createWriteStream(__dirname + '/output.txt');
 
 _h(readStream).split('\n').map(function (data) {
   const chunk = data.toString();

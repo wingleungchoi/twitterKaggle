@@ -3,3 +3,4 @@ train.csv
 output.csv
 node_modules
 .DS_Store
+output.txt
