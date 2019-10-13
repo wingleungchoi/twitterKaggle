@@ -1,6 +1,8 @@
 const _h = require('highland');
 const fs = require('fs');
 
+const SENTIMENT_VALUES = ['0', '1'];
+
 const readStream = fs.createReadStream(__dirname + '/train.csv');
 
 const writeStream = fs.createWriteStream(__dirname + '/output.csv');
@@ -12,6 +14,11 @@ _h(readStream).split('\n').map(function (data) {
   // writeStream.write(data, 'base64');
   console.log(chunk);
   const [_, sentiment, ...text] = chunks;
+
+  if (!SENTIMENT_VALUES.includes(`${sentiment}`)) {
+    return '';
+  }
+
   if (chunk) {
     console.log(`__label__${sentiment} ${text.join(',')}`)
     // writeStream.write('UK\n', 'base64');
