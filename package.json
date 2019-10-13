@@ -8,5 +8,7 @@
   },
   "author": "",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "highland": "^3.0.0-beta.10"
+  }
 }
